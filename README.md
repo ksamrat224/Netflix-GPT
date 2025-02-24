@@ -4,6 +4,7 @@
 - configured TailwindCSS
 - Header
 - Log In 
+- Sign Up
 
 
 # Features:
