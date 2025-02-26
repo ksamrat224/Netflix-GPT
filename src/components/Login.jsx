@@ -7,14 +7,22 @@ const Login = () => {
   const[errorMessage,setErrorMessage]=useState(null);
   const email=useRef(null);
   const password=useRef(null);
+  const name = useRef(null);
 
-  const handleButtonClick =()=> {
-    //validate the form data
+  const handleButtonClick = () => {
+    if (!email.current || !password.current) {
+      console.error("Email or Password input field not found!");
+      return;
+    }
+  
     console.log(email.current.value);
     console.log(password.current.value);
-   const message = checkValidData(email.current.value , password.current.value);
-   setErrorMessage(message);
+  
+    const nameValue = name.current ? name.current.value : ""; // Handle Sign-In case where name is not present
+    const message = checkValidData(nameValue, email.current.value, password.current.value);
+    setErrorMessage(message);
   };
+  
   const toggleSignInform =()=> {
     setIsSignInForm(!isSignInForm);
   };
@@ -27,7 +35,7 @@ const Login = () => {
         <form onSubmit={(e)=>e.preventDefault()} className=' w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-md bg-opacity-80'>
          <h1 className='font-bold text-3xl py-4'>{isSignInForm? "Sign In":"Sign Up"}</h1>
 
-         {!isSignInForm &&(<input type="text" placeholder='Full Name' className='p-4 my-4 w-full bg-gray-800 rounded-md' />)}
+         {!isSignInForm &&(<input ref={name} type="text" placeholder='Full Name' className='p-4 my-4 w-full bg-gray-800 rounded-md' />)}
 
          <input ref={email} type="text" placeholder='Email Address' className='p-4 my-4 w-full bg-gray-800 rounded-md' />
          
