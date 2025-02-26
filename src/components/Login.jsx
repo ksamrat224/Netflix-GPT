@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
 import { checkValidData } from '../Utils/Validate';
+import {  createUserWithEmailAndPassword ,signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../Utils/firebase';
 
 const Login = () => {
   const[isSignInForm,setIsSignInForm]=useState(true);
@@ -15,13 +17,31 @@ const Login = () => {
       return;
     }
   
-    console.log(email.current.value);
-    console.log(password.current.value);
-  
-    const nameValue = name.current ? name.current.value : ""; // Handle Sign-In case where name is not present
+    const nameValue = !isSignInForm && name.current ? name.current.value : ""; // Only use name for Sign-Up
     const message = checkValidData(nameValue, email.current.value, password.current.value);
     setErrorMessage(message);
+  
+    if (message) return; // Stop execution if validation fails
+  
+    if (!isSignInForm) {
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          console.log("User signed up successfully:", userCredential.user);
+        })
+        .catch((error) => {
+          setErrorMessage(`${error.code} - ${error.message}`);
+        });
+    } else {
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          console.log("User signed in successfully:", userCredential.user);
+        })
+        .catch((error) => {
+          setErrorMessage(`${error.code} - ${error.message}`);
+        });
+    }
   };
+  
   
   const toggleSignInform =()=> {
     setIsSignInForm(!isSignInForm);
