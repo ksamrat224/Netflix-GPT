@@ -3,14 +3,13 @@ import Header from './Header'
 import { checkValidData } from '../Utils/Validate';
 import {  createUserWithEmailAndPassword ,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../Utils/firebase';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../Utils/userSlice';
+import { BODY_IMG, USER_AVATAR } from '../Utils/constants';
 
 const Login = () => {
   const[isSignInForm,setIsSignInForm]=useState(true);
   const[errorMessage,setErrorMessage]=useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const email=useRef(null);
@@ -35,7 +34,7 @@ const Login = () => {
           console.log("User signed up successfully:", userCredential.user);
      
           updateProfile(userCredential.user, {
-  displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/155053248?v=4"
+  displayName: name.current.value, photoURL:USER_AVATAR
 }).then(() => {
   const {uid,email,displayName,photoURL}= auth.currentUser;
   dispatch(
@@ -46,8 +45,7 @@ const Login = () => {
       photoURL:photoURL,
     })
   );
-      
-  navigate("/browse");
+   
 }).catch((error) => {
   setErrorMessage(error.message);
 });
@@ -59,7 +57,6 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
           console.log("User signed in successfully:", userCredential.user);
-          navigate("/browse")
         })
         .catch((error) => {
           setErrorMessage(`${error.code} - ${error.message}`);
@@ -76,7 +73,7 @@ const Login = () => {
         <Header/>
         <div className='absolute'>
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/0cf2c109-3af1-4a9d-87d7-aecfac5fe881/web/NP-en-20250217-TRIFECTA-perspective_76dcb6f9-24a4-4224-8132-cb79a5094f75_large.jpg"
+          src={BODY_IMG}
           alt="Body-Image"
         />
         </div>
