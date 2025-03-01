@@ -34,7 +34,7 @@ const Login = () => {
           console.log("User signed up successfully:", userCredential.user);
      
           updateProfile(userCredential.user, {
-  displayName: name.current.value, photoURL:USER_AVATAR
+  displayName: name.current.value, photoURL: USER_AVATAR
 }).then(() => {
   const {uid,email,displayName,photoURL}= auth.currentUser;
   dispatch(

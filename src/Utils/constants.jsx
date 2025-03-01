@@ -3,3 +3,11 @@ export const LOGO = "https://help.nflxext.com/helpcenter/OneTrust/oneTrust_produ
 export const BODY_IMG = "https://assets.nflxext.com/ffe/siteui/vlv3/0cf2c109-3af1-4a9d-87d7-aecfac5fe881/web/NP-en-20250217-TRIFECTA-perspective_76dcb6f9-24a4-4224-8132-cb79a5094f75_large.jpg";
 
 export const USER_AVATAR ="https://avatars.githubusercontent.com/u/155053248?v=4";
+
+export const API_OPTIONS = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZWRlNGI0MTcwMGM0MWVkMmM4YjA4MjY0MGQ5ODJiNSIsIm5iZiI6MTc0MDgyNTc4MS42NDQsInN1YiI6IjY3YzJlNGI1YjU0OTBhZDVhNzNmNTQzNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.A912zLwSATydIGY-qMlWfZWOZhbDTx2W0YpfS7tLyNQ'
+    }
+  };
