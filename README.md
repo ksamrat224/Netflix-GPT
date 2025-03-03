@@ -27,8 +27,9 @@
 - Planning for MainContainer and Secondary container
 - Fetch Data for Trailer Video
 - Update Store with Trailer Video Data
-- Embedded the Youtube Video and make it autoplay and mute
+- Embedded the Youtube Video and make it auto-play and mute
 - Tailwind Classes to make Main Container look awesome
+- Build Secondary Components
 
 # Features:
 - Login/sign Up
