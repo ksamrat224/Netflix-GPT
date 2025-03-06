@@ -57,6 +57,11 @@ const Header = () => {
       />
    { user && ( 
     <div className='flex items-center space-x-4 p-2'>
+      <select name="" id="" className='py-2 px-2 rounded-lg bg-yellow-600 text-white font-bold m-2'>
+        <option value="en">English</option>
+        <option value="nepali">Nepali</option>
+        <option value="spanish">Spanish</option>
+      </select>
       <button className='py-2 px-4 m-2 bg-purple-900 text-white rounded-lg font-bold transition-all duration-300 shadow-sm hover:shadow-lg'
       onClick={handleGptSearchClick}
       >GPT Search</button>
