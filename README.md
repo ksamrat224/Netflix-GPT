@@ -35,7 +35,10 @@
 - TMDB Image CDN URL
 - Made the Browse Page amazing with TailWind CSS
 - Custom Hook for nowPlayingMovies
-- GPT Search Feature 
+- GPT Search Page
+- GPT Search Bar
+- Multi-Language Feature in our App(BONUS)
+- 
 
 # Features:
 - Login/sign Up
