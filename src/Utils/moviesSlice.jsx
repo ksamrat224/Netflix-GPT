@@ -5,6 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
     initialState:{
         nowPlayingMovies: null,
         trailerVideo: null,
+        
     },
     reducers: {
         addNowPlayingMovies :(state,action)=>{

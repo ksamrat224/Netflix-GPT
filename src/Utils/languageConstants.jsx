@@ -12,4 +12,4 @@ const lang = {
         gptSearchPlaceholder: "¿Qué te gustaría ver hoy?"
     }
 }
-export default lang 
+export default lang ;
